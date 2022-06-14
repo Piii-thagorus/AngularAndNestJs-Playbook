@@ -1,0 +1,33 @@
+---
+# tasks file for AngularAndNest
+
+- block:
+
+    - name: Installing Node
+      ansible.builtin.package:
+          name: nodejs
+          state: latest
+
+    - name: Installing npm
+      ansible.builtin.package:
+          name: npm
+          state: latest
+
+- block:
+    - name: Install typescript
+      community.general.npm:
+        name: "typescript"
+        global: yes
+        state: latest
+
+    - name: Install Angular
+      community.general.npm:
+          name: "@angular/cli"
+          global: yes
+          state: latest
+
+    - name: Install Nestjs
+      community.general.npm:
+          name: "@nestjs/cli"
+          global: yes
+          state: latest
